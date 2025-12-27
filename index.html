@@ -52,6 +52,9 @@
                         <line x1="12" y1="17" x2="12.01" y2="17"></line>
                     </svg>
                     How to use markdown syntax
+                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
                 </summary>
                 <div class="help-content">
                     <h3>Supported Formatting</h3>
@@ -80,9 +83,19 @@
                                 <td>Bold + Italic</td>
                             </tr>
                             <tr>
-                                <td><code># Heading</code></td>
-                                <td><span class="example-output">𝗛𝗲𝗮𝗱𝗶𝗻𝗴</span></td>
-                                <td>Bold heading</td>
+                                <td><code># text</code></td>
+                                <td><span class="example-output">𝘁𝗲𝘅𝘁</span></td>
+                                <td>Bold (# removed)</td>
+                            </tr>
+                            <tr>
+                                <td><code>`text`</code></td>
+                                <td><span class="example-output">𝚝𝚎𝚡𝚝</span></td>
+                                <td>Code/Monospace</td>
+                            </tr>
+                            <tr>
+                                <td><code>~~text~~</code></td>
+                                <td><span class="example-output">t̶e̶x̶t̶</span></td>
+                                <td>Strikethrough</td>
                             </tr>
                         </tbody>
                     </table>
@@ -114,7 +127,9 @@ Examples:
 **This will be bold**
 *This will be italic*
 ***This will be bold and italic***
-# This will be a bold heading"
+# Heading text (becomes bold, # removed)
+`code text` for monospace
+~~strikethrough text~~"
                         spellcheck="false"
                         autocomplete="off"
                         autocorrect="off"

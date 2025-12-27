@@ -1,7 +1,7 @@
 // Markdown to Unicode Formatter
 // Wrapper module for markdown parsing and conversion
 
-import { toBold, toItalic, toBoldItalic } from './unicodeMaps.js';
+import { toBold, toItalic, toBoldItalic, toMonospace, toStrikethrough } from './unicodeMaps.js';
 
 export class MarkdownFormatter {
     /**
@@ -18,6 +18,12 @@ export class MarkdownFormatter {
         result = result.replace(/^(#{1,6})\s+(.+)$/gm, (match, hashes, content) => {
             return toBold(content);
         });
+
+        // Process strikethrough (~~text~~)
+        result = result.replace(/~~(.+?)~~/g, (match, content) => toStrikethrough(content));
+
+        // Process code/monospace (`text`)
+        result = result.replace(/`(.+?)`/g, (match, content) => toMonospace(content));
 
         // Process bold italic (***text*** or ___text___)
         // Must come before bold and italic processing
